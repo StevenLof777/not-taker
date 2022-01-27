@@ -1,10 +1,11 @@
 const express = require('express');
 const path = require('path');
 const pulls = require('./db/notes_db.json');
-
+const notesId = require('./helpers/notesId');
 const PORT = process.env.PORT || 3001;
-
 const app = express();
+
+console.log(notesId)
 
 app.use(express.static('public'));
 
