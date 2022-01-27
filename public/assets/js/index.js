@@ -49,7 +49,7 @@ const deleteNote = (id) =>
       'Content-Type': 'application/json',
     },
   });
-
+  
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
@@ -67,6 +67,7 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave = () => {
+  console.log('save button clicked')
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
