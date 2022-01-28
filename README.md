@@ -28,8 +28,10 @@ The following images show the web application's appearance and functionality:
 * Express
 
 ## Features to add in the future.
-* When the user clicks the delete button then the note will be removed.
-* All use to edit existing notes.
+```
+When the user clicks the delete button then the note will be removed.
+All use to edit existing notes.
+````
 
 ## Contact me
 * [GitHub](https://github.com/StevenLof777)
