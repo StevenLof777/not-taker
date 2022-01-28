@@ -1,9 +1,11 @@
+const db = require('../db/notes_db.json')
 const notes = require('express').Router();
 const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
-
+const { v4: uuidv4 } = require('uuid');
 // GET Route for retrieving all the notes
 notes.get('/', (req, res) => {
-    readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)));
+  console.log('console')
+    res.json(db)
   });
   
   // POST Route for a new UX/UI notes
@@ -15,7 +17,8 @@ notes.get('/', (req, res) => {
     if (req.body) {
       const newNotes = {
         title,
-        text
+        text,
+        id : uuidv4()
       };
   
       readAndAppend(newNotes, './db/notes.json');
