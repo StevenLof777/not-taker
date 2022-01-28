@@ -17,19 +17,36 @@ app.get('/', (req, res) =>
 app.get('/api/notes', (req, res) => res.json(db));
 
 app.post('/api/notes', (req, res) => {
-    const { title, text} = req.body;
-  
-    const newNotes = {
-        title,
-        text,
-        id : uuidv4()
-    }
+  const { title, text} = req.body;
 
-    db.push(newNotes);
-    fs.writeFile('./db/db.json', JSON.stringify(db), (err) =>
-    console.error(err))
+  const newNotes = {
+      title,
+      text,
+      id : uuidv4()
+  }
 
-    res.json(db)
+  db.push(newNotes);
+  fs.writeFile('./db/db.json', JSON.stringify(db), (err) =>
+  console.error(err))
+
+  res.json(db)
+});
+
+app.delete(`/api/notes/id`, (req, res) => {
+  const { id } = req.body
+   
+  const newNotes = {
+    title,
+    text,
+    id : uuidv4()
+  }
+
+  db.push(newNotes);
+
+  fs.writeFile('./db/db.json', JSON.stringify(db), (err) =>
+  console.error(err))
+
+  res.json(db)
 });
 
 app.get('/notes', (req, res) =>
